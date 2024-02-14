@@ -1,1 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import 'primeflex/primeflex.scss';
+@import "primeicons/primeicons.css";
+
+:root {
+    --surface-card: #ffffff;
+}
+
+.layout-topbar {
+    position: fixed;
+    height: 5rem;
+    z-index: 997;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 0 2rem;
+    background-color: var(--surface-card);
+    transition: left .2s;
+    display: flex;
+    align-items: center;
+    // box-shadow: 0 3px 5px #00000005, 0 0 2px #0000000d, 0 1px 4px #00000014;
+}
+
+
+.layout-wrapper {
+    min-height: 100vh;
+}
+
+.layout-main-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+    padding: 7rem 2rem 2rem 4rem;
+    transition: margin-left .2s;
+}
+
+.layout-main {
+    flex: 1 1 auto;
+}
+
+@media (min-width: 992px) {
+    .layout-wrapper.layout-static .layout-main-container {
+        margin-left: 300px;
+    }
+}
