@@ -43,6 +43,7 @@ export class AppComponent {
 
   teams = this.fixtureService.teamsList;
   fixture = signal<any>([]);
+
   @ViewChild('fixturelist') fixturelistElement!: ElementRef;
 
   constructor(){
@@ -95,13 +96,16 @@ export class AppComponent {
 
 
   updateFixture = (teamsMap: any, isSort: boolean) => {
+    console.log("teamsMap",teamsMap);
     if(teamsMap.length > 0) {
       if(isSort){
         this.fixture.set(this.fixtureService.generateFixture(teamsMap));
         this.fixtureService.saveFixture(this.fixture());
       } else{
-        this.fixture.set(this.fixtureService.getFixture());
+        this.fixture.set(this.fixtureService.getFixture() ?? []);
       }
+
+      console.log("fixture",this.fixture())
     }
   }
   

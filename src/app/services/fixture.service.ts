@@ -14,7 +14,7 @@ interface Team {
 export class FixtureService {
 
   private localStorageService: LocalStorageService = inject(LocalStorageService);
-  private teams:Team[] = this.localStorageService.getItem("teams");
+  private teams:Team[] = this.localStorageService.getItem("teams") ?? [];
 
   teamsList = signal<Team[]>(this.teams);
 
