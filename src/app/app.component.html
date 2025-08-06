@@ -1,116 +1,280 @@
 <div class="layout-wrapper">
-    <div class="layout-topbar">
-        <div class="w-full">
-            <p-menubar [model]="items">
+    <!-- Header mejorado -->
+    <div class="layout-topbar bg-primary-50 border-bottom-2 border-primary-200">
+        <div class="w-full px-4 py-3">
+            <p-menubar [model]="items" styleClass="border-none bg-transparent">
                 <ng-template pTemplate="start">
-                    <!-- <img src="https://primefaces.org/cdn/primeng/images/primeng.svg" height="40" class="mr-2" /> -->
-                    <svg class="m-2" height="40"  enable-background="new 0 0 32 32" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="ball"/><g id="wistle"/><g id="pitch"/><g id="goal"/><g id="socks"/><g id="shoe"/><g id="jersey"/><g id="bottle"/><g id="shorts"/><g id="corner"/><g id="winner"/><g id="trophy"/><g id="substitution"/><g id="medal_award"/><g id="strategy"/><g id="card"/><g id="gloves"/><g id="stadium"/><g id="keeper"/><g id="time"/><g id="horns"/><g id="flag"/><g id="referee"/><g id="player"/><g id="injury"/><g id="supporter"/><g id="coach"/><g id="cone"/><g id="captain"/><g id="match"><path d="M21,14c0,0.552-0.447,1-1,1h-3v9c0,0.552-0.447,1-1,1h-4c-0.553,0-1-0.448-1-1s0.447-1,1-1h3V5h-3   c-0.553,0-1-0.448-1-1s0.447-1,1-1h4c0.553,0,1,0.448,1,1v9h3C20.553,13,21,13.448,21,14z" fill="#FFCC2F"/><path d="M12,7H2C1.447,7,1,6.552,1,6V2c0-0.552,0.447-1,1-1h10c0.553,0,1,0.448,1,1v4C13,6.552,12.553,7,12,7z M3,5   h8V3H3V5z" fill="#FF911C"/><path d="M30,17H20c-0.553,0-1-0.448-1-1v-4c0-0.552,0.447-1,1-1h10c0.553,0,1,0.448,1,1v4   C31,16.552,30.553,17,30,17z M21,15h8v-2h-8V15z" fill="#FF911C"/><path d="M12,27H2c-0.553,0-1-0.448-1-1v-4c0-0.552,0.447-1,1-1h10c0.553,0,1,0.448,1,1v4C13,26.552,12.553,27,12,27   z M3,25h8v-2H3V25z" fill="#FF911C"/><path d="M30,31h-8c-0.553,0-1-0.448-1-1s0.447-1,1-1h8c0.553,0,1,0.448,1,1S30.553,31,30,31z M20,30   c0-0.552-0.447-1-1-1h-2c-0.553,0-1,0.448-1,1s0.447,1,1,1h2C19.553,31,20,30.552,20,30z M15,30c0-0.552-0.447-1-1-1H2   c-0.553,0-1,0.448-1,1s0.447,1,1,1h12C14.553,31,15,30.552,15,30z" fill="#FFCC2F"/></g><g id="score"/><g id="celender"/><g id="grass"/><g id="game"/><g id="subsitutions"/><g id="bench"/></svg>
+                    <div class="flex align-items-center gap-3">
+                        <svg class="text-primary" height="40" enable-background="new 0 0 32 32" version="1.1" viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+                            <g id="match">
+                                <path d="M21,14c0,0.552-0.447,1-1,1h-3v9c0,0.552-0.447,1-1,1h-4c-0.553,0-1-0.448-1-1s0.447-1,1-1h3V5h-3   c-0.553,0-1-0.448-1-1s0.447-1,1-1h4c0.553,0,1,0.448,1,1v9h3C20.553,13,21,13.448,21,14z" fill="#3B82F6"/>
+                                <path d="M12,7H2C1.447,7,1,6.552,1,6V2c0-0.552,0.447-1,1-1h10c0.553,0,1,0.448,1,1v4C13,6.552,12.553,7,12,7z M3,5   h8V3H3V5z" fill="#EF4444"/>
+                                <path d="M30,17H20c-0.553,0-1-0.448-1-1v-4c0-0.552,0.447-1,1-1h10c0.553,0,1,0.448,1,1v4   C31,16.552,30.553,17,30,17z M21,15h8v-2h-8V15z" fill="#EF4444"/>
+                                <path d="M12,27H2c-0.553,0-1-0.448-1-1v-4c0-0.552,0.447-1,1-1h10c0.553,0,1,0.448,1,1v4C13,26.552,12.553,27,12,27   z M3,25h8v-2H3V25z" fill="#EF4444"/>
+                                <path d="M30,31h-8c-0.553,0-1-0.448-1-1s0.447-1,1-1h8c0.553,0,1,0.448,1,1S30.553,31,30,31z M20,30   c0-0.552-0.447-1-1-1h-2c-0.553,0-1,0.448-1,1s0.447,1,1,1h2C19.553,31,20,30.552,20,30z M15,30c0-0.552-0.447-1-1-1H2   c-0.553,0-1,0.448-1,1s0.447,1,1,1h12C14.553,31,15,30.552,15,30z" fill="#3B82F6"/>
+                            </g>
+                        </svg>
+                        <div>
+                            <h2 class="text-2xl font-bold text-primary-700 m-0">Liga Manager</h2>
+                            <p class="text-sm text-600 m-0">Gestión de equipos y calendario</p>
+                        </div>
+                    </div>
                 </ng-template>
             </p-menubar>
         </div>
     </div>
+
+    <!-- Contenido principal -->
     <div class="layout-main-container">
-        <div class="layout-main">
-            <div class="surface-section">
-                <div class="grid">
-                    <div class="col-12 lg:col-6 h-full px-4 py-8 md:px-6 lg:px-8">
-                        <p-table [value]="teams()"
+        <div class="layout-main p-4">
+            
+            <!-- Sección de estadísticas -->
+            <div class="grid mb-4">
+                <div class="col-12 md:col-4">
+                    <div class="surface-card p-4 border-round shadow-2">
+                        <div class="flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <span class="text-600 text-sm">Total Equipos</span>
+                                <div class="text-2xl font-semibold text-900">{{ teams().length }}</div>
+                            </div>
+                            <div class="bg-blue-100 p-2 border-round">
+                                <i class="pi pi-users text-blue-600 text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 md:col-4">
+                    <div class="surface-card p-4 border-round shadow-2">
+                        <div class="flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <span class="text-600 text-sm">Jornadas</span>
+                                <div class="text-2xl font-semibold text-900">{{ fixture().length }}</div>
+                            </div>
+                            <div class="bg-green-100 p-2 border-round">
+                                <i class="pi pi-calendar text-green-600 text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 md:col-4">
+                    <div class="surface-card p-4 border-round shadow-2">
+                        <div class="flex justify-content-between align-items-start mb-3">
+                            <div>
+                                <span class="text-600 text-sm">Partidos Totales</span>
+                                <div class="text-2xl font-semibold text-900">
+                                    <!-- {{ fixture().reduce((acc, round) => acc + round.length, 0) }} -->
+                                </div>
+                            </div>
+                            <div class="bg-orange-100 p-2 border-round">
+                                <i class="pi pi-flag text-orange-600 text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección principal mejorada -->
+            <div class="grid">
+                <!-- Panel de equipos -->
+                <div class="col-12 lg:col-5">
+                    <div class="surface-card p-4 border-round shadow-2 h-full">
+                        <div class="flex justify-content-between align-items-center mb-4">
+                            <h3 class="text-xl font-semibold text-900 m-0">
+                                <i class="pi pi-users mr-2 text-primary"></i>
+                                Equipos Registrados
+                            </h3>
+                            <p-badge [value]="teams().length.toString()" severity="info"></p-badge>
+                        </div>
+
+                        <!-- Formulario de agregar equipo -->
+                        <div class="mb-4 p-3 bg-primary-50 border-round border-1 border-primary-200">
+                            <h4 class="text-primary-700 mb-3 font-medium">
+                                <i class="pi pi-plus mr-2"></i>
+                                Agregar Nuevo Equipo
+                            </h4>
+                            <div class="p-inputgroup">
+                                <span class="p-inputgroup-addon bg-primary text-0">
+                                    <i class="pi pi-flag"></i>
+                                </span>
+                                <input 
+                                    type="text" 
+                                    pInputText 
+                                    placeholder="Nombre del equipo"
+                                    maxlength="100" 
+                                    [formControl]="nameTeam"
+                                    styleClass="flex-1" />
+                                <p-button 
+                                    label="Agregar" 
+                                    icon="pi pi-plus"
+                                    type="button" 
+                                    (click)="onAdd()"
+                                    [disabled]="!nameTeam.valid || nameTeam.value?.trim() === ''">
+                                </p-button>
+                            </div>
+                            
+                            @if (nameTeam.hasError('nameIsAlready')) {
+                                <div class="flex align-items-center mt-2">
+                                    <i class="pi pi-exclamation-triangle text-red-500 mr-2"></i>
+                                    <span class="text-red-500 text-sm">
+                                        Este nombre de equipo ya existe.
+                                    </span>
+                                </div>
+                            }
+                        </div>
+
+                        <!-- Tabla de equipos mejorada -->
+                        <p-table 
+                            [value]="teams()"
                             [paginator]="true"
-                            [rows]="5"
+                            [rows]="8"
                             [showCurrentPageReport]="true"
-                            currentPageReportTemplate="Página {first} a {last} de {totalRecords}"
-                            [rowsPerPageOptions]="[5, 10, 20]">
+                            currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} equipos"
+                            [rowsPerPageOptions]="[5, 8, 10, 20]"
+                            styleClass="p-datatable-sm">
+                            
                             <ng-template pTemplate="header">
-                                <tr>
-                                    <th>#</th>
-                                    <th>Nombre</th>
-                                    <th>Accción</th>
+                                <tr class="bg-primary-50">
+                                    <th class="text-center" style="width: 80px">#</th>
+                                    <th>Nombre del Equipo</th>
+                                    <th class="text-center" style="width: 120px">Acciones</th>
                                 </tr>
                             </ng-template>
-                            <ng-template pTemplate="body" let-team>
-                                <tr>
-                                    <td>{{ team.id }}</td>
-                                    <td>{{ team.name }}</td>
+                            
+                            <ng-template pTemplate="body" let-team let-i="rowIndex">
+                                <tr class="hover:bg-gray-50">
+                                    <td class="text-center">
+                                        <p-badge [value]="team.id.toString()"></p-badge>
+                                    </td>
                                     <td>
-                                        <p-button severity="danger" label="Eliminar" type="button" (click)="onDelete(team.id)"></p-button>
+                                        <div class="flex align-items-center">
+                                            <i class="pi pi-shield text-primary mr-2"></i>
+                                            <span class="font-medium">{{ team.name }}</span>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <p-button 
+                                            icon="pi pi-trash" 
+                                            severity="danger" 
+                                            size="small"
+                                            [text]="true"
+                                            [rounded]="true"
+                                            pTooltip="Eliminar equipo"
+                                            (click)="onDelete(team.id)">
+                                        </p-button>
                                     </td>
                                 </tr>
                             </ng-template>
+                            
                             <ng-template pTemplate="emptymessage">
                                 <tr>
                                     <td colspan="3">
-                                        <div class="flex justify-content-center">
-                                            No se encontraron registros que coincidan.
+                                        <div class="flex flex-column align-items-center py-5 text-600">
+                                            <i class="pi pi-info-circle text-4xl mb-3"></i>
+                                            <span class="text-lg">No hay equipos registrados</span>
+                                            <small>Agrega tu primer equipo para comenzar</small>
                                         </div>
                                     </td>
                                 </tr>
                             </ng-template>
                         </p-table>
                     </div>
-                    <div class="col-12 lg:col-6 px-4 py-8 md:px-6 lg:px-8 surface-50">
-                        <div class="border-bottom-1 pb-3 surface-border"><span
-                                class="text-900 font-medium text-xl">Agregar equipo</span></div>
-                        <div class="py-2 mt-3 border-bottom-1 surface-border">
-                            <div class="p-inputgroup mb-3">
-                                <input type="text" pInputText styleClass="w-full" placeholder="Nombre de su equipo"
-                                    maxlength="100" [formControl]="nameTeam" />
-                                <p-button label="Agregar" type="button" (click)="onAdd()"></p-button>
-                            </div>
-                            @if (nameTeam.hasError('nameIsAlready')) {
-                            <span class="p-error">
-                                Este nombre de equipo ya existe.
-                            </span>
-                            }
+                </div>
 
-                        </div>
-                
-                    </div>
-                    <div class="col-12">
-                        <div class="grid">
-                            {{fixture.length}}
-                            @if (fixture().length > 0) {
-                                <div class="col-12">
-                                    <p-button label="Generar Calendario" type="button" (click)="onGenerateFixture()"
-                                styleClass="w-full mt-4"></p-button>
-                                </div>
+                <!-- Panel de calendario -->
+                <div class="col-12 lg:col-7">
+                    <div class="surface-card p-4 border-round shadow-2 h-full">
+                        <div class="flex justify-content-between align-items-center mb-4">
+                            <h3 class="text-xl font-semibold text-900 m-0">
+                                <i class="pi pi-calendar mr-2 text-primary"></i>
+                                Calendario de Partidos
+                            </h3>
+                            @if (teams().length >= 2) {
+                                <p-button 
+                                    label="Generar Calendario" 
+                                    icon="pi pi-refresh"
+                                    (click)="onGenerateFixture()"
+                                    [loading]="false">
+                                </p-button>
                             }
-                            <div class="col-12">
-                                <div class="grid" #fixturelist>
-                                    @for (round of fixture(); track $index) {
-                                    <div class="col-3">
-                                        <div class="card px-5 py-3 surface-card shadow-2 border-round">
-                                            <div class="flex w-full justify-content-center">
-                                                <span class="font-medium">Jornada {{$index + 1}}</span>
+                        </div>
+
+                        @if (teams().length < 2) {
+                            <div class="flex flex-column align-items-center justify-content-center py-8 text-center">
+                                <i class="pi pi-calendar-times text-6xl text-300 mb-3"></i>
+                                <h4 class="text-600 mb-2">Se necesitan al menos 2 equipos</h4>
+                                <p class="text-500 mb-4">Agrega más equipos para poder generar el calendario de partidos</p>
+                                <p-progressBar 
+                                    [value]="(teams().length / 2) * 100" 
+                                    [showValue]="false"
+                                    styleClass="w-full max-w-20rem">
+                                </p-progressBar>
+                                <small class="text-500 mt-2">{{ teams().length }}/2 equipos mínimos</small>
+                            </div>
+                        } @else if (fixture().length === 0) {
+                            <div class="flex flex-column align-items-center justify-content-center py-8 text-center">
+                                <i class="pi pi-calendar-plus text-6xl text-primary-300 mb-3"></i>
+                                <h4 class="text-600 mb-2">¡Listo para generar el calendario!</h4>
+                                <p class="text-500 mb-4">Tienes {{ teams().length }} equipos registrados</p>
+                                <p-button 
+                                    label="Generar Calendario Ahora" 
+                                    icon="pi pi-play"
+                                    size="large"
+                                    (click)="onGenerateFixture()">
+                                </p-button>
+                            </div>
+                        } @else {
+                            <!-- Calendario generado -->
+                            <div class="mb-3">
+                                <div class="flex justify-content-between align-items-center">
+                                    <span class="text-600">
+                                        <i class="pi pi-info-circle mr-1"></i>
+                                        {{ fixture().length }} jornadas programadas
+                                    </span>
+                                    <p-button 
+                                        label="Exportar PDF" 
+                                        icon="pi pi-download"
+                                        severity="secondary"
+                                        size="small"
+                                        (click)="onExportToPdf()">
+                                    </p-button>
+                                </div>
+                            </div>
+
+                            <div class="grid" #fixturelist>
+                                @for (round of fixture(); track $index) {
+                                    <div class="col-12 xl:col-6 xxl:col-4">
+                                        <div class="surface-50 p-3 border-round border-1 border-200 mb-3">
+                                            <div class="text-center mb-3">
+                                                <h5 class="m-0 text-primary font-semibold">
+                                                    <i class="pi pi-calendar mr-2"></i>
+                                                    Jornada {{ $index + 1 }}
+                                                </h5>
                                             </div>
+                                            
                                             @for (match of round; track $index; let odd = $odd) {
-                                            <div class="flex w-full py-1 justify-content-center text-xs"
-                                            [ngClass]="{ 'surface-100': odd }" style="padding: 5px;">
-                                                <span class="w-10rem flex justify-content-start">{{match.homeTeam}}</span>
-                                                <span class="text-blue-600 font-bold">VS</span>
-                                                <span class="w-10rem flex justify-content-end">{{match.awayTeam}}</span>
-                                            </div>
+                                                <div class="flex align-items-center justify-content-between p-2 mb-1 border-round"
+                                                     [ngClass]="{ 'surface-0': odd, 'surface-100': !odd }">
+                                                    <div class="flex-1 text-right pr-2">
+                                                        <span class="font-medium text-900">{{ match.homeTeam }}</span>
+                                                    </div>
+                                                    <div class="flex align-items-center justify-content-center px-2">
+                                                        <p-badge value="VS" severity="info" badgeSize="xlarge"></p-badge>
+                                                    </div>
+                                                    <div class="flex-1 text-left pl-2">
+                                                        <span class="font-medium text-900">{{ match.awayTeam }}</span>
+                                                    </div>
+                                                </div>
                                             }
                                         </div>
                                     </div>
-                                    }
-                                </div>
+                                }
                             </div>
-                            @if (fixture().length > 0) {
-                                <div class="col-12">
-                                    <div class="grid grid-nogutter align-items-center mb-5">
-                                        <div
-                                            class="col h-3rem border-1 border-300 text-900 inline-flex justify-content-center align-items-center flex-shrink-0 border-round mr-3 cursor-pointer hover:surface-100 transition-duration-150 transition-colors"
-                                            (click)="onExportToPdf()">
-                                            Exportar</div>
-                                    </div>
-                                </div>
-                            }
-                        </div>
+                        }
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
 </div>
-<p-toast position="bottom-center"></p-toast>
+
+<p-toast position="top-right"></p-toast>

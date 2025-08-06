@@ -3,6 +3,7 @@ import { of } from 'rxjs';
 import { LocalStorageService } from './local-storage.service';
 import html2canvas from 'html2canvas';
 import { jsPDF } from "jspdf";
+import { generatePDFFixtures } from '../pdf';
 
 interface Team {
   id:string,
@@ -106,4 +107,6 @@ export class FixtureService {
       PDF.save(`Enfrentamientos-La Cantera 2024::` + crypto.randomUUID());
     });
   }
+
+  exportToPDF = (fixture:any[]) =>    generatePDFFixtures(fixture, new Date().getFullYear(), new Date().toLocaleDateString(),`Torneo_de_Futbol_7_Barrio_La_Cantera_${crypto.randomUUID()}`);
 }
