@@ -1,8 +1,8 @@
 import { Injectable, inject, signal } from '@angular/core';
 import { of } from 'rxjs';
 import { LocalStorageService } from './local-storage.service';
-import html2canvas from 'html2canvas';
-import { jsPDF } from "jspdf";
+// import html2canvas from 'html2canvas';
+// import { jsPDF } from "jspdf";
 import { generatePDFFixtures } from '../pdf';
 
 interface Team {
@@ -47,37 +47,37 @@ export class FixtureService {
 
     // Check if the number of teams is even or odd
     const isEven = teams.length % 2 === 0;
-  
+
     // Add a bye for odd number of teams
     if (!isEven) {
       console.error('No existen suficientes equipos para continuar')
     }
-  
+
     // Generate rounds
     for (let round = 0; round < teams.length - 1; round++) {
       const roundFixtures = [];
-  
+
       // Generate matches for each round
       for (let i = 0; i < teams.length / 2; i++) {
         const homeTeam = teams[i];
         const awayTeam = teams[teams.length - 1 - i];
-  
+
         // Skip BYE matches
         if (homeTeam !== "BYE" && awayTeam !== "BYE") {
           roundFixtures.push({
           "homeTeam":homeTeam,
           "awayTeam":awayTeam
-    
+
           });
         }
       }
-  
+
       fixtures.push(roundFixtures);
-  
+
       // Rotate teams
       teams.splice(1, 0, teams.pop());
     }
-  
+
     return fixtures;
   }
 
@@ -94,19 +94,19 @@ export class FixtureService {
     return null;
   }
 
-  exportToPdf = (fixturelistElement:HTMLElement) => {
-    console.log("exportToPdf");
-    html2canvas(fixturelistElement, { scale: 2 }).then((canvas) => {
-      console.log({canvas});
-      const imageGeneratedFromTemplate = canvas.toDataURL('image/png');
-      const fileWidth = 270;
-      const generatedImageHeight = (canvas.height * fileWidth) / canvas.width;
-      let PDF = new jsPDF('l', 'mm', 'a4',);
-      PDF.text(`Torneo de Fútbol 7  "Barrio La Cantera" 2024`,PDF.internal.pageSize.getWidth() / 2, 20, { align: 'center'} );
-      PDF.addImage(imageGeneratedFromTemplate, 'PNG', 10, 25, fileWidth, generatedImageHeight,);
-      PDF.save(`Enfrentamientos-La Cantera 2024::` + crypto.randomUUID());
-    });
-  }
+  // exportToPdf = (fixturelistElement:HTMLElement) => {
+  //   console.log("exportToPdf");
+  //   html2canvas(fixturelistElement, { scale: 2 }).then((canvas) => {
+  //     console.log({canvas});
+  //     const imageGeneratedFromTemplate = canvas.toDataURL('image/png');
+  //     const fileWidth = 270;
+  //     const generatedImageHeight = (canvas.height * fileWidth) / canvas.width;
+  //     let PDF = new jsPDF('l', 'mm', 'a4',);
+  //     PDF.text(`Torneo de Fútbol 7  "Barrio La Cantera" 2024`,PDF.internal.pageSize.getWidth() / 2, 20, { align: 'center'} );
+  //     PDF.addImage(imageGeneratedFromTemplate, 'PNG', 10, 25, fileWidth, generatedImageHeight,);
+  //     PDF.save(`Enfrentamientos-La Cantera 2024::` + crypto.randomUUID());
+  //   });
+  // }
 
   exportToPDF = (fixture:any[]) =>    generatePDFFixtures(fixture, new Date().getFullYear(), new Date().toLocaleDateString(),`Torneo_de_Futbol_7_Barrio_La_Cantera_${crypto.randomUUID()}`);
 }
